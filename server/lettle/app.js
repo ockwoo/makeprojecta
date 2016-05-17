@@ -57,5 +57,14 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// apply the routes to our application with the prefix /v1
+var route = express.Router();
+
+route.get('/', function(req, res){
+    res.json({message: 'Welcome to API world'});
+});
+
+app.use('/v1', route);
+
 
 module.exports = app;
