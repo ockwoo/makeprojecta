@@ -8,8 +8,17 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var v1 = require('./routes/v1');
 
+var config = require('./config'); // get our config file
+var mongoose = require('mongoose'); // mongo connect
+ 
 var app = express();
+
+//=============================================
+// config
+//=============================================
+//mongoose.connect(config.mongodb);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/v1', v1);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,15 +66,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// apply the routes to our application with the prefix /v1
-var route = express.Router();
-
-route.get('/', function(req, res){
-    res.json({message: 'Welcome to API world'});
-});
-
-app.use('/v1', route);
-
 
 module.exports = app;
