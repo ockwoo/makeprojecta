@@ -1,3 +1,3 @@
 module.exports = {
-    'mongodb' : 'mongodb://localhost/lettle'
+    'mongodb' : 'mongodb://mustmakeitadmin:mustMake!q2w#e@localhost:27017'
 };
