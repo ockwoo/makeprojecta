@@ -18,7 +18,13 @@ var app = express();
 //=============================================
 // config
 //=============================================
-//mongoose.connect(config.mongodb);
+mongoose.connect(config.mongodb);
+mongoose.connection.on('error', function () {
+    console.log('Mongoose connection error');
+});
+mongoose.connection.once('open', function callback() {
+    console.log("Mongoose connected to the database");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
