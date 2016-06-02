@@ -1,0 +1,63 @@
+{
+	"id": "c671d74f-30ed-0f1a-bd16-401e201f3925",
+	"name": "Lettle",
+	"description": "",
+	"order": [
+		"300c295e-fb98-f524-0468-db7b00436dc0",
+		"a92ad94f-c9e2-2934-a30c-bd4aff15aa23"
+	],
+	"folders": [
+		{
+			"id": "e42d667e-10cd-5e08-658c-8a4c11aca373",
+			"name": "lettle",
+			"description": "",
+			"order": [],
+			"owner": "302487"
+		}
+	],
+	"timestamp": 1464880280716,
+	"owner": "302487",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "300c295e-fb98-f524-0468-db7b00436dc0",
+			"headers": "",
+			"url": "{{base_url}}/v1/lettle",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464882150641,
+			"name": "{{base_url}}/v1/lettle",
+			"description": "",
+			"collectionId": "c671d74f-30ed-0f1a-bd16-401e201f3925",
+			"responses": [],
+			"rawModeData": "\r\n"
+		},
+		{
+			"id": "a92ad94f-c9e2-2934-a30c-bd4aff15aa23",
+			"headers": "",
+			"url": "{{base_url}}/v1/lettle",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464882346463,
+			"name": "{{base_url}}/v1/lettle",
+			"description": "",
+			"collectionId": "c671d74f-30ed-0f1a-bd16-401e201f3925",
+			"responses": [],
+			"rawModeData": "{\r\n\tsenderId : \"hyunwoo\",\r\n\treceiversId : \"dongwan\",\r\n\tcontents : \"hi ~\",\r\n\tevent : \"event\" ,\r\n\tcreator : \"hyunwoo\",\r\n\tmodifier : \"hyunwoo\"\r\n}"
+		}
+	]
+}

@@ -6,14 +6,15 @@ router.get('/', function(req, res){
     res.json({message: 'Welcome to API world'});
 });
 
-router.get('/feed', function(req, res){
+router.get('/lettle', function(req, res){
+    console.log("")
     lettleDb.getLettle(req, res);
-    res.json({message: 'feed'});
+    //res.json({message: 'feed'});
 });
 
-router.post('/feed', function(req, res){
+router.post('/lettle', function(req, res){
     lettleDb.addLettle(req, res);
-    res.json({message: 'feed'});
+    //res.json({message: 'feed'});
 });
 
 module.exports = router;
