@@ -4,7 +4,7 @@
 
 ## Install Mongodb
 
-* mongod 수행
+* start mongod 
 
 ## Download source from github
 
@@ -12,6 +12,9 @@
 	$ cd makeprojecta/server/lettle/
 	$ npm install
 	$ cd bin
+
+## Start node 
+	$ node www
 
 ## Search for lettle from Mongodb
 
@@ -29,16 +32,3 @@
 	{ "_id" : ObjectId("575b774d626824600c557dfa"), "updated_at" : ISODate("2016-06-11T02:28:29.819Z"), "receiversId" : [ ], "__v" : 0 }
 
 
-## Install
-
-Install the command line tool
-
-    $ npm install
-    
-Install foreman
-
-    $ npm install -g foreman
-
-## Startup Server
-
-    $ nf start 
