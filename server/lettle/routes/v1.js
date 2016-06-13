@@ -12,6 +12,11 @@ router.get('/lettle', function(req, res){
     //res.json({message: 'feed'});
 });
 
+router.get('/lettle/:id', function(req, res){
+    var id = req.params.id;
+    lettleDb.getLettle(req, res, id);
+});
+
 router.post('/lettle', function(req, res){
     lettleDb.addLettle(req, res);
     //res.json({message: 'feed'});

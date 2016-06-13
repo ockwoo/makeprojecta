@@ -12,10 +12,18 @@ module.exports =  {
             res.json({ message : 'ok'});
         });
     },
-    getLettle : function(req,res) {
+    getLettle : function(req,res, id) {
         console.log("get lettle");
-        Lettle.find({}, function(e, lettles) {
-        	res.json(lettles);
-        });
+
+        if(id) {    
+            Lettle.find({senderId : id}, function(e, lettles) {
+               res.json(lettles);
+            });
+        }
+        else {
+            Lettle.find({}, function(e, lettles) {
+        	   res.json(lettles);
+            });
+        }
     }
 };  
