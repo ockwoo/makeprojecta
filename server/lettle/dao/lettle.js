@@ -4,6 +4,7 @@ module.exports =  {
     addLettle : function(req, res) {
         console.log("add lettle");
         var body = req.body;
+        console.log('body : ' + JSON.stringify(body));
         var newLettle = Lettle(body);
 
         newLettle.save(function(e) {

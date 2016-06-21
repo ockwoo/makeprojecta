@@ -1,14 +1,15 @@
 {
-	"id": "c671d74f-30ed-0f1a-bd16-401e201f3925",
+	"id": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
 	"name": "Lettle",
 	"description": "",
 	"order": [
-		"300c295e-fb98-f524-0468-db7b00436dc0",
-		"a92ad94f-c9e2-2934-a30c-bd4aff15aa23"
+		"cb02f789-53c2-5d55-3c74-cf572a6c47a1",
+		"4f5c7485-5ded-a8e3-fa5c-ca0472bff0f5",
+		"962a0c15-bc02-34f0-0acc-a654313e672f"
 	],
 	"folders": [
 		{
-			"id": "e42d667e-10cd-5e08-658c-8a4c11aca373",
+			"id": "0e81e350-bf9a-fadb-62b0-0433215542e1",
 			"name": "lettle",
 			"description": "",
 			"order": [],
@@ -21,7 +22,46 @@
 	"public": false,
 	"requests": [
 		{
-			"id": "300c295e-fb98-f524-0468-db7b00436dc0",
+			"id": "4f5c7485-5ded-a8e3-fa5c-ca0472bff0f5",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{base_url}}/v1/lettle",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1466521574282,
+			"name": "{{base_url}}/v1/lettle",
+			"description": "",
+			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
+			"responses": [],
+			"rawModeData": "{\r\n\t\"senderId\" : \"hyunwoo\",\r\n\t\"receiversId\" : [\"dongwan\"],\r\n\t\"contents\" : {\r\n\t    \"title\" : \"hi\",\r\n\t    \"msg\" : \"hello world\"\r\n\t},\r\n\t\"event\" : {\r\n\t    \"latitude\": 37.186581,\r\n\t    \"longitude\": 127.071928,\r\n\t    \"timestamp\": \"2016.06.30 15:30:11\"\r\n\t},\r\n\t\"creator\" : \"hyunwoo\",\r\n\t\"modifier\" : \"hyunwoo\"\r\n}\r\n"
+		},
+		{
+			"id": "962a0c15-bc02-34f0-0acc-a654313e672f",
+			"headers": "",
+			"url": "{{base_url}}/v1/lettle/{id}",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
+			"data": null,
+			"dataMode": "params",
+			"name": "{{base_url}}/v1/lettle/{id}",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1466519632832,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "cb02f789-53c2-5d55-3c74-cf572a6c47a1",
 			"headers": "",
 			"url": "{{base_url}}/v1/lettle",
 			"preRequestScript": null,
@@ -36,28 +76,9 @@
 			"time": 1464882150641,
 			"name": "{{base_url}}/v1/lettle",
 			"description": "",
-			"collectionId": "c671d74f-30ed-0f1a-bd16-401e201f3925",
+			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
 			"responses": [],
 			"rawModeData": "\r\n"
-		},
-		{
-			"id": "a92ad94f-c9e2-2934-a30c-bd4aff15aa23",
-			"headers": "",
-			"url": "{{base_url}}/v1/lettle",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1464882346463,
-			"name": "{{base_url}}/v1/lettle",
-			"description": "",
-			"collectionId": "c671d74f-30ed-0f1a-bd16-401e201f3925",
-			"responses": [],
-			"rawModeData": "{\r\n\tsenderId : \"hyunwoo\",\r\n\treceiversId : \"dongwan\",\r\n\tcontents : \"hi ~\",\r\n\tevent : \"event\" ,\r\n\tcreator : \"hyunwoo\",\r\n\tmodifier : \"hyunwoo\"\r\n}"
 		}
 	]
 }
