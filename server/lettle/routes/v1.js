@@ -22,4 +22,10 @@ router.post('/lettle', function(req, res){
     //res.json({message: 'feed'});
 });
 
+router.delete('/lettle/:id', function(req, res){
+    var id = req.params.id;
+    lettleDb.deleteLettle(req, res, id);
+    //res.json({message: 'feed'});
+});
+
 module.exports = router;

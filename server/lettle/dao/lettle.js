@@ -26,5 +26,20 @@ module.exports =  {
         	   res.json(lettles);
             });
         }
+    },
+    deleteLettle : function(req,res, id) {
+        console.log("deleteLettle lettle");
+        if(!id) {
+           return res.status(400).send();
+        }
+
+        Lettle.remove( { _id : id }, function(err) {
+            if(err) {
+                return res.status(500).send();
+            }
+            else {
+                return res.status(200).send();
+            }
+        });
     }
 };  

@@ -5,7 +5,8 @@
 	"order": [
 		"cb02f789-53c2-5d55-3c74-cf572a6c47a1",
 		"4f5c7485-5ded-a8e3-fa5c-ca0472bff0f5",
-		"962a0c15-bc02-34f0-0acc-a654313e672f"
+		"962a0c15-bc02-34f0-0acc-a654313e672f",
+		"cd2b55ae-80aa-1e19-2367-5db5dc061f62"
 	],
 	"folders": [
 		{
@@ -18,8 +19,8 @@
 	],
 	"timestamp": 1464880280716,
 	"owner": "302487",
-	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "4f5c7485-5ded-a8e3-fa5c-ca0472bff0f5",
@@ -34,7 +35,7 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1466521574282,
-			"name": "{{base_url}}/v1/lettle",
+			"name": "Write lettle",
 			"description": "",
 			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
 			"responses": [],
@@ -54,7 +55,7 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1466598887850,
-			"name": "{{base_url}}/v1/lettle/{id}",
+			"name": "GET lettle for some id",
 			"description": "",
 			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
 			"responses": []
@@ -73,11 +74,31 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1464882150641,
-			"name": "{{base_url}}/v1/lettle",
+			"name": "GET lettle",
 			"description": "",
 			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
 			"responses": [],
 			"rawModeData": "\r\n"
+		},
+		{
+			"id": "cd2b55ae-80aa-1e19-2367-5db5dc061f62",
+			"headers": "",
+			"url": "{{base_url}}/v1/lettle/{{id}}",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "00940cf0-3d55-5559-e1b2-ebb83a0ee6be",
+			"data": null,
+			"dataMode": "params",
+			"name": "Delete lettle",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1472053001800,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		}
 	]
 }

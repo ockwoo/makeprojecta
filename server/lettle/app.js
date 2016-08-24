@@ -12,7 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var v1 = require('./routes/v1');
 
-var config = require('./config'); // get our config file
+var config = require('config'); // get our config file
 var mongoose = require('mongoose'); // mongo connect
 
 var app = express();
