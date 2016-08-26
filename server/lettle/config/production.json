@@ -1,0 +1,4 @@
+{
+    "mongo" : "mongodb://52.79.196.78:37017/lettle",
+    "logLevel" : "info"
+}
