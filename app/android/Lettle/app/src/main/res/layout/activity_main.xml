@@ -3,37 +3,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@mipmap/test_02" />
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:background="@color/colorPrimaryDark">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_logoView"
+        android:src="@mipmap/small_logo_01"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/main_menuHome"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_selector"
+            android:layout_gravity="bottom"
+            android:text="HOME"
+            android:textSize="10dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="4dp"
+            android:textAlignment="center"
+            />
+        <Button
+            android:id="@+id/main_menuLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_selector"
+            android:layout_gravity="bottom"
+            android:text="LETTER"
+            android:textSize="10dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="4dp"
+            android:textAlignment="center"
+            />
+        <Button
+            android:id="@+id/main_menuBottle"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_selector"
+            android:text="BOTTLE"
+            android:textSize="10dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="bottom"
+            android:textAlignment="center"
+            />
+        <Button
+            android:id="@+id/main_menuSetting"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_selector"
+            android:text="SETTING"
+            android:textSize="10dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_gravity="bottom"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/button_selector2"
+            android:text="+ NEW LETTLE +"
+            android:textSize="12dp"
+            android:layout_gravity="bottom"
+            android:id="@+id/mainNewLettleWriter"
+            android:textAlignment="center"
+             />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+
+    </android.support.v7.widget.Toolbar>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimary" />
+        android:layout_height="4dp"
+        android:background="@drawable/toolbar_dropshadow" />
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/mainListView"
-        android:background="#FFFFFF"
-        android:layout_weight="1.0" />
-
-    <Button
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mainRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimary"
-        android:text="NEW LETTLE"
-        android:textSize="12dp"
-        android:id="@+id/mainNewLettleWriter"
-        />
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" />
 
 </LinearLayout>

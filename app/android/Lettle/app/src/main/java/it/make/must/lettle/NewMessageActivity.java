@@ -1,11 +1,14 @@
 package it.make.must.lettle;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +29,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import it.make.must.util.DeleteLettle;
 import it.make.must.util.PostLettle;
 
 public class NewMessageActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -42,6 +46,7 @@ public class NewMessageActivity extends AppCompatActivity implements OnMapReadyC
     private Location location;
     private double lat;
     private double lon;
+    private Context mContext;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -64,7 +69,7 @@ public class NewMessageActivity extends AppCompatActivity implements OnMapReadyC
         locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        mContext = NewMessageActivity.this;
     }
 
     @Override
@@ -91,17 +96,34 @@ public class NewMessageActivity extends AppCompatActivity implements OnMapReadyC
 
     Button.OnClickListener sendButtonClickListener = new View.OnClickListener() {
         public void onClick(View v) {
-            PostLettle client = new PostLettle();
-            client.mContext = v.getContext();
-            String mReceiver = editTextReceiver.getText().toString();
-            String mTitle = editTextTitle.getText().toString();
-            String mMsg = editTextMsg.getText().toString();
 
-            Log.d(TAG, "[NewMessageActivity] mReceiver = " + mReceiver);
-            Log.d(TAG, "[NewMessageActivity] mTitle = " + mTitle);
-            Log.d(TAG, "[NewMessageActivity] mMsg = " + mMsg);
+            AlertDialog.Builder alert_confirm = new AlertDialog.Builder(NewMessageActivity.this);
+            alert_confirm.setMessage("레틀을 보내시겠습니까?")
+                    .setCancelable(false).setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // 'YES'
+                    PostLettle client = new PostLettle();
+                    client.mContext = mContext;
+                    String mReceiver = editTextReceiver.getText().toString();
+                    String mTitle = editTextTitle.getText().toString();
+                    String mMsg = editTextMsg.getText().toString();
 
-            client.execute("http://52.79.196.78:3000/v1/lettle", mReceiver, mTitle, mMsg, String.valueOf(lat), String.valueOf(lon));
+                    Log.d(TAG, "[NewMessageActivity] mReceiver = " + mReceiver);
+                    Log.d(TAG, "[NewMessageActivity] mTitle = " + mTitle);
+                    Log.d(TAG, "[NewMessageActivity] mMsg = " + mMsg);
+
+                    client.execute("http://52.79.196.78:3000/v1/lettle", mReceiver, mTitle, mMsg, String.valueOf(lat), String.valueOf(lon));
+                }
+            }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // 'No'
+                    return;
+                }
+            });
+            AlertDialog alert = alert_confirm.create();
+            alert.show();
         }
     };
 

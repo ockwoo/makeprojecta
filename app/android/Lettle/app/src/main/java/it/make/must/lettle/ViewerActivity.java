@@ -52,7 +52,7 @@ public class ViewerActivity extends AppCompatActivity implements OnMapReadyCallb
             try{
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
                 Date tempDate = sdf.parse(lettleData.getEvent().getTimestamp());
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM,");
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd");
                 String titleDate = sdf2.format(tempDate);
                 tvTitleDate.setText(titleDate);
                 tvTitle.setText(lettleData.getContents().getTitle());
