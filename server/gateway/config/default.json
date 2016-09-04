@@ -1,0 +1,16 @@
+{
+    "secretKey" : "super secret jwt key",
+    "issuerStr" : "Sample API Gateway",
+    "mongoose" : {
+        "USER_DB_URL" : "mongodb://localhost:27017/test/users",
+        "SERVICES_DB_URL" : "mongodb://localhost:27017/test/services",
+        "LETTLE_DB_URL" : "mongodb://localhost:27017/lettle/lettles",
+        "PET_DB_URL" : "mongodb://localhost:27017/pet/pets",
+        "ADOPTION_DB_URL" : "mongodb://localhost:27017/pet/adoption"
+    },
+    "storage" : {
+      "ki" : "AKIAIS7YW747WZNXEHBA",
+      "sk" : "2JLy533xfBs289qkkfldQqqlDkXR38VQ7uZobqTv", 
+      "bn" :  "okslab"
+    } 
+}
