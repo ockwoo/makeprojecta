@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.MapFragment" />
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C9C9C9" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_gravity="bottom"
+        android:background="#F4F4F4" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C9C9C9" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextReceiver"
+                android:layout_alignParentStart="true"
+                android:textSize="14dp"
+                android:layout_below="@+id/editTextLocationName"
+                android:paddingLeft="5dp"
+                android:background="@drawable/dot2"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/hintColor"
+                android:hint="Receiver" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextTitle"
+                android:layout_alignParentStart="true"
+                android:hint="Title"
+                android:textSize="14dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:paddingLeft="5dp"
+                android:background="@drawable/dot2"
+                android:textColorHint="@color/hintColor"
+                android:layout_below="@+id/editTextReceiver" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="400dp"
+                android:inputType="textMultiLine"
+                android:id="@+id/editTextMsg"
+                android:layout_below="@+id/editTextTitle"
+                android:gravity="top"
+                android:textSize="15dp"
+                android:background="@drawable/dot"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/hintColor"
+                android:hint="Message" />
+        </LinearLayout>
+    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                android:textSize="12dp"
+                android:text="Send LETTLE"
+                android:id="@+id/sendButton"
+                />
+        </LinearLayout>
+
+</LinearLayout>

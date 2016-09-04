@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|left"
+        android:textColor="#999999"
+        android:fontFamily="font/Frutiger55Roman.ttf"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="11dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/textTitle"
+                android:textStyle="bold"
+                android:fontFamily="font/Frutiger55Roman.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|left"
+                android:textColor="#000000"
+                android:text="Title"
+                android:layout_marginBottom="6dp"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/textMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="font/Frutiger55Roman.ttf"
+                android:layout_gravity="center_horizontal|left"
+                android:textColor="#777777"
+                android:text="Message"
+                android:lineSpacingExtra="4dip"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView"
+            android:src="@mipmap/sample_01"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="8dp" />
+
+    </LinearLayout>
+</LinearLayout>
