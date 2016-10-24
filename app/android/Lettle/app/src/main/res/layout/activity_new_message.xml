@@ -9,7 +9,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="120dp"
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
         app:contentInsetLeft="0dp"
@@ -25,15 +25,22 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#C9C9C9" />
+    <Button
+        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="12dp"
+        android:text="Send LETTLE"
+        android:id="@+id/sendButton"
+        />
     <View
         android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:layout_gravity="bottom"
-        android:background="#F4F4F4" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#C9C9C9" />
+        android:layout_height="4dp"
+        android:background="@drawable/toolbar_dropshadow" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -93,22 +100,6 @@
         </LinearLayout>
     </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            >
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:background="@color/colorPrimary"
-                android:textSize="12dp"
-                android:text="Send LETTLE"
-                android:id="@+id/sendButton"
-                />
-        </LinearLayout>
 
 </LinearLayout>

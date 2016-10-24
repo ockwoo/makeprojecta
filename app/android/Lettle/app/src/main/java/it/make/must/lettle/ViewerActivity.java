@@ -2,6 +2,7 @@ package it.make.must.lettle;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
@@ -52,7 +53,7 @@ public class ViewerActivity extends AppCompatActivity implements OnMapReadyCallb
             try{
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
                 Date tempDate = sdf.parse(lettleData.getEvent().getTimestamp());
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM,");
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd");
                 String titleDate = sdf2.format(tempDate);
                 tvTitleDate.setText(titleDate);
                 tvTitle.setText(lettleData.getContents().getTitle());
@@ -69,8 +70,11 @@ public class ViewerActivity extends AppCompatActivity implements OnMapReadyCallb
             } catch (Exception e) {
                 Log.d(TAG, e.toString());
             }
-
         }
+
+        tvTitle.setTypeface(Typeface.createFromAsset(this.getAssets(),"NanumGothicBold.otf"));
+        tvMsg.setTypeface(Typeface.createFromAsset(this.getAssets(),"NanumGothic.otf"));
+        tvTitleDate.setTypeface(Typeface.createFromAsset(this.getAssets(),"NanumGothic.otf"));
     }
 
     @Override
