@@ -1,6 +1,11 @@
 var formidable = require('formidable');
 var config = require('config');
+var util = require('util');
 var AWS = require('aws-sdk');
+var thunkify = require('thunkify');
+var co = require('co');
+var _ = require('lodash');
+
 AWS.config.update({
     accessKeyId: config.storage.ki,
     secretAccessKey: config.storage.sk,
@@ -10,6 +15,7 @@ AWS.config.update({
 var Pet = require('../models/pet/pet');
 var Adop = require('../models/pet/adoption');
 var logger = require('../logger');
+
 //////////////////////////////////////////////////////////////////////////
 // Pet
 //////////////////////////////////////////////////////////////////////////
@@ -112,52 +118,78 @@ exports.deleteAdop = function(req, res, next) {
 };
 
 
-function upload (req, res) {
-
-}
-
-
-exports.uploadPicture = function(req, res, next) {
-    var form = new formidable.IncomingForm();
-    form.parse(req, function(err, field, files) {
-        var s3 = new AWS.S3();
-        var param = {
-            Bucket : config.storage.bn,
-            Key : files.userfile.name,
-            ACL : 'public-read',
-            Body : require('fs').createReadStream(files.userfile.path),
-            //ContentType: files.mimetype
-        };
-        s3.upload(param, function(err, data){
-            var result='';
+function parseForm(req) {
+    return  new Promise(function(resolve, reject){
+        var form = new formidable.IncomingForm();
+        form.parse(req, function(err, field, files) {
             if(err) {
-                logger.error(err);
-                res.status(500).send({
-                    message : err
-                });
+                reject(err);
             }
             else {
-                //
-                if (req.params.id) {
-                    Adop.findById(req.params.id, function (e, adop) {
-                        //res.json(pets);
-                        if(e) {
-                            logger.error(e);
-                            return;
-                        }
-                        if(adop) {
-                           adop.picture.unshift(data.Location);
-                           adop.save();
-                        }
-                    });
-                }
-                res.status(200).send({
-                    message : "ok",
-                    data : data.Location
-                });
+                resolve(files);
             }
         });
-    });   
+    });
+} 
+
+function uploadToS3(file) {
+    return  new Promise(function(resolve, reject) {
+        var s3 = new AWS.S3();
+        s3.upload(file, function(err, data) {
+           if(err) {
+                reject(err);
+            }
+            else {
+                resolve(data);
+            }     
+        });
+    });
+}
+
+exports.uploadPicture = function(req, res, next) {
+    co(function*(){
+        var images = yield parseForm(req);
+        var params = _.transform(images, function(result, value, key) {
+            result.push({
+                Bucket : config.storage.bn,
+                Key : value.name,
+                ACL : 'public-read',
+                Body : require('fs').createReadStream(value.path),
+                //ContentType: files.mimetype
+            });
+        }, []);
+
+        var results = yield _.transform(params , function(result, param) {
+            result.push(uploadToS3(param))
+        }, []);
+
+        var locations = _.map(results, "Location");
+        if(locations.length > 0) {
+            var adop = yield Adop.findById(req.params.id).exec();
+            if(adop) {
+                for(var url of locations) {
+                    if(adop.picture.length >=3 ) {
+                        adop.picture.shift();
+                    }
+                    adop.picture.push(url);
+                }
+                adop.save();
+            }
+        }
+        res.status(200).send({
+            message : "ok",
+            data : locations
+        });
+    })
+    .catch(function(e) {
+        console(e.stack);
+        res.status(500).send({
+            message : e
+        });;
+    });
+
+   
+    
 };
 
 
