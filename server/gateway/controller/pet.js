@@ -7,8 +7,8 @@ var co = require('co');
 var _ = require('lodash');
 
 AWS.config.update({
-    accessKeyId: config.storage.ki,
-    secretAccessKey: config.storage.sk,
+    accessKeyId: config.storage.ki || process.env.ki,
+    secretAccessKey: config.storage.sk || process.env.sk,
     region : 'ap-northeast-2',
 });
 
